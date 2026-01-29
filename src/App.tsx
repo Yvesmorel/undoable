@@ -7,7 +7,6 @@ import { Toaster } from "sonner";
 export type userListType = {
   name: string;
   email: string;
-  isPotenialDelete: boolean;
 };
 function App() {
   const { notification, setNotification, setUserList, userList } = useInit();

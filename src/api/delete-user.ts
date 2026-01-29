@@ -6,7 +6,7 @@ export const deleteUserAPI = (id: string): Promise<string> => {
         resolve(`✅ API : ID ${id} supprimé définitivement.`);
       } else {
         reject(
-          new Error("❌ API : Erreur lors de la suppression de l'ID ${id}."),
+          new Error(`❌ API : Erreur lors de la suppression de l'ID ${id}.`),
         );
       }
     }, 1000); // Latence réseau simulée

@@ -8,10 +8,8 @@ export type notifType = {
 };
 
 export type notifStateType = notifType & {
- 
   setNotification: React.Dispatch<React.SetStateAction<notifType[]>>;
   setUserList: React.Dispatch<React.SetStateAction<userListType[]>>;
-
 };
 export function useInit() {
   const [notification, setNotification] = useState<notifType[]>([]);
@@ -20,22 +18,18 @@ export function useInit() {
     {
       name: "Alice Dubois",
       email: "alice.dubois@example.com",
-      isPotenialDelete: false,
     },
     {
       name: "Marc Latour",
       email: "marc.latour@entreprise.fr",
-      isPotenialDelete: false,
     },
     {
       name: "Charlie Scene",
       email: "charlie.s@studio.io",
-      isPotenialDelete: false,
     },
     {
       name: "Sarah Connor",
       email: "sarah.c@resistance.net",
-      isPotenialDelete: false,
     },
   ]);
   return { notification, setNotification, userList, setUserList };

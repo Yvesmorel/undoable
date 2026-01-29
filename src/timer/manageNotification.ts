@@ -26,7 +26,7 @@ export function manageNotifocation(userId: string) {
     notifId: string,
     setUserList: React.Dispatch<React.SetStateAction<userListType[]>>,
   ) => {
-    const [timer, setTimer] = useState(5);
+    const [timer, setTimer] = useState(6);
 
     const handleDeleteNotif = (actionType: "deleteNotif" | "deleteUser") => {
       if (actionType === "deleteNotif") setIsPotenialDelete(false);
