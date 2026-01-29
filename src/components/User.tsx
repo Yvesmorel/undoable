@@ -31,7 +31,7 @@ const UserCard = ({ name, email, setNotification }: User) => {
   };
 
   return (
-    <div className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 max-w-md w-full">
+    <div className="flex items-center justify-between p-4 bg-white border border-gray-100 rounded-xl shadow-lg hover:shadow-md transition-shadow duration-300 max-w-md w-full">
       {/* Partie Gauche : Avatar + Infos */}
       <div className="flex items-center gap-4">
         {/* Avatar avec initiales */}
