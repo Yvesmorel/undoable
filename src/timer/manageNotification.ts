@@ -4,7 +4,7 @@ import { userListType } from "../App";
 import { notifType } from "../hook/useInit";
 import { toast } from "sonner";
 
-const NOTIF_DURATION = 5000;
+const NOTIF_DURATION = 5500;
 export type useNotifStateType = (
   setIsPotenialDelete: Dispatch<SetStateAction<boolean>>,
   setNotification: React.Dispatch<React.SetStateAction<notifType[]>>,

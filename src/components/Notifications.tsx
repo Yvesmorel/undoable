@@ -7,6 +7,7 @@ const NotificationTimer = ({
   notifId,
   setNotification,
   setUserList,
+  userId
 }: notifStateType) => {
   const { timer, handleDeleteNotif } = useNotifState(
     setIsPotenialDelete,
@@ -27,7 +28,7 @@ const NotificationTimer = ({
         </div>
 
         <div className="flex-1">
-          <p className="font-medium text-gray-900">Suppression en cours...</p>
+          <p className="font-medium text-gray-900">Suppression de {userId}...</p>
           <p className="text-xs text-gray-500 mt-0.5">
             L'action s'exécutera automatiquement.
           </p>

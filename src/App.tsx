@@ -23,18 +23,21 @@ function App() {
       ))}
 
       <div className="w-auto h-auto flex flex-col items-center gap-5 absolute bottom-5 right-5 overflow-y-scroll">
-        {notification.map(({ useNotifState, setIsPotenialDelete, notifId }) => (
-          <Notifications
-            key={notifId}
-            useNotifState={useNotifState}
-            setIsPotenialDelete={setIsPotenialDelete}
-            notifId={notifId}
-            setNotification={setNotification}
-            setUserList={setUserList}
-          />
-        ))}
+        {notification.map(
+          ({ useNotifState, setIsPotenialDelete, notifId, userId }) => (
+            <Notifications
+              key={notifId}
+              useNotifState={useNotifState}
+              setIsPotenialDelete={setIsPotenialDelete}
+              notifId={notifId}
+              setNotification={setNotification}
+              setUserList={setUserList}
+              userId={userId}
+            />
+          )
+        )}
       </div>
-       <Toaster position="bottom-left" richColors  />
+      <Toaster position="bottom-left" richColors />
     </div>
   );
 }

@@ -5,11 +5,13 @@ export type notifType = {
   useNotifState: useNotifStateType;
   setIsPotenialDelete: React.Dispatch<React.SetStateAction<boolean>>;
   notifId: string;
+  userId:string
 };
 
 export type notifStateType = notifType & {
   setNotification: React.Dispatch<React.SetStateAction<notifType[]>>;
   setUserList: React.Dispatch<React.SetStateAction<userListType[]>>;
+  
 };
 export function useInit() {
   const [notification, setNotification] = useState<notifType[]>([]);

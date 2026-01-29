@@ -26,7 +26,8 @@ const UserCard = ({ name, email, setNotification }: User) => {
         setIsPotenialDelete: setIsPotenialDelete,
         useNotifState,
         notifId,
-      },
+        userId: email,
+      }
     ]);
   };
 
