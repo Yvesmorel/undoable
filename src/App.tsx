@@ -3,6 +3,7 @@ import UserCard from "./components/User";
 import Notifications from "./components/Notifications";
 import { useInit } from "./hook/useInit";
 import { Toaster } from "sonner";
+import { RefObject } from "react";
 
 export type userListType = {
   name: string;
@@ -10,6 +11,23 @@ export type userListType = {
 };
 function App() {
   const { notification, setNotification, setUserList, userList } = useInit();
+
+  const handleDeleteNotif = (
+    deleteUser: boolean,
+    notifId: string,
+    userId: string
+  ) => {
+    if (deleteUser) handleDeleteUser(userId)
+
+    setNotification((prevNotif) =>
+      prevNotif.filter((notif) => notif.notifId !== notifId)
+    );
+  };
+
+  const handleDeleteUser = (userId: string) =>
+    setUserList((prevUsers) =>
+      prevUsers.filter((user) => user.email !== userId)
+    );
 
   return (
     <div className="w-screen h-screen overflow-auto flex flex-col items-center gap-5 p-12 relative">
@@ -23,19 +41,15 @@ function App() {
       ))}
 
       <div className="w-auto h-auto flex flex-col items-center gap-5 absolute bottom-5 right-5 overflow-y-scroll">
-        {notification.map(
-          ({ useNotifState, setIsPotenialDelete, notifId, userId }) => (
-            <Notifications
-              key={notifId}
-              useNotifState={useNotifState}
-              setIsPotenialDelete={setIsPotenialDelete}
-              notifId={notifId}
-              setNotification={setNotification}
-              setUserList={setUserList}
-              userId={userId}
-            />
-          )
-        )}
+        {notification.map(({ notifId, userId, setIsPotenialDelete }) => (
+          <Notifications
+            handleDeleteNotif={handleDeleteNotif}
+            key={notifId}
+            notifId={notifId}
+            userId={userId}
+            setIsPotenialDelete={setIsPotenialDelete}
+          />
+        ))}
       </div>
       <Toaster position="bottom-left" richColors />
     </div>

@@ -1,5 +1,4 @@
 import React, { memo, useState } from "react";
-import { manageNotifocation } from "../timer/manageNotification";
 import { notifType } from "../hook/useInit";
 import { v4 as uuidv4 } from "uuid";
 
@@ -16,17 +15,13 @@ const UserCard = ({ name, email, setNotification }: User) => {
 
   const handleDelete = () => {
     setIsPotenialDelete(true);
-
     const notifId = uuidv4();
-    const useNotifState = manageNotifocation(email);
-
     setNotification((prevNotif) => [
       ...prevNotif,
       {
-        setIsPotenialDelete: setIsPotenialDelete,
-        useNotifState,
         notifId,
         userId: email,
+        setIsPotenialDelete
       }
     ]);
   };

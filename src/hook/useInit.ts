@@ -1,17 +1,17 @@
 import { useState } from "react";
-import { useNotifStateType } from "../timer/manageNotification";
 import { userListType } from "../App";
 export type notifType = {
-  useNotifState: useNotifStateType;
-  setIsPotenialDelete: React.Dispatch<React.SetStateAction<boolean>>;
   notifId: string;
-  userId:string
+  userId: string;
+  setIsPotenialDelete: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type notifStateType = notifType & {
-  setNotification: React.Dispatch<React.SetStateAction<notifType[]>>;
-  setUserList: React.Dispatch<React.SetStateAction<userListType[]>>;
-  
+  handleDeleteNotif: (
+    deleteUser: boolean,
+    notifId: string,
+    userId: string
+  ) => void;
 };
 export function useInit() {
   const [notification, setNotification] = useState<notifType[]>([]);
